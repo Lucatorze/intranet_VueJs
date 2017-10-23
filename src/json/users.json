@@ -108,4 +108,15 @@
     "city": "Mulhouse",
     "country": "France",
     "photo": "https://randomuser.me/api/portraits/women/56.jpg"
+},{
+    "id": 11,
+    "gender": "male",
+    "firstname": "Michael",
+    "lastname": "Guerfi",
+    "email": "michael.guerfi@gaypride.com",
+    "phone": "05-44-47-09-91",
+    "birthdate": "28/06/1997",
+    "city": "Paris",
+    "country": "France",
+    "photo": "http://intranet.supinternet.fr/medias/images/photos/michael.guerfi.jpg"
 }]
