@@ -9,7 +9,7 @@
         <div class="col s12 m8 offset-m2">
             <div class="card horizontal">
                 <div class="card-image col offset-m1" style="margin-top: 6%">
-                    <img class="materialboxed" :src="user.photo">
+                    <img width="200px" height="150px" :src="user.photo">
                 </div>
                 <div class="card-stacked">
                     <div class="card-content" >
