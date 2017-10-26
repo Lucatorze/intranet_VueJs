@@ -10,16 +10,18 @@
         Filtrer par :
         </div>
         <div class="col s4">
-            <select class="browser-default">
-                <option value="name">Nom</option>
-                <option value="age">Age</option>
+            <select class="browser-default" v-model="searchBy">
+                <option value="lastname" selected>Nom</option>
+                <option value="firstname">Prenom</option>
+                <option value="country">Pays</option>
                 <option value="city">Ville</option>
             </select>
         </div>
 
         <br>
         <div class="col s12">
-            <div v-for="(user, i) in filteredUser" :key="i" class="card horizontal col s5 offset-m1">
+            <user-card v-for="(user, i) in filteredUser" :key="i" :user="user" class="card horizontal col s5 offset-m1"></user-card>
+            <!--<div v-for="(user, i) in filteredUser" :key="i" class="card horizontal col s5 offset-m1">
                 <div class="card-image col s3 " style="margin-top: 6%">
                     <img class="responsive-img" :src="user.photo">
                 </div>
@@ -36,21 +38,22 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </template>
 
 <script>
-
+    import UserCard from "../components/user-card.vue";
     import users from '../json/users.json';
     export default {
         name: 'list-view',
-
+        components: {UserCard},
         data () {
             return {
                 users : users,
-                search: ''
+                search: '',
+                searchBy: 'lastname'
             }
         },
         computed: {
@@ -58,25 +61,18 @@
             {
                 var self=this;
                 return this.users.filter(function(user){
-                    return user.lastname.toLowerCase().includes(self.search.toLowerCase())
-                        || user.firstname.toLowerCase().includes(self.search.toLowerCase())
-                        || user.country.toLowerCase().includes(self.search.toLowerCase())
-                        || user.city.toLowerCase().includes(self.search.toLowerCase());
+                    if(self.searchBy === "lastname"){
+                        return user.lastname.toLowerCase().includes(self.search.toLowerCase());
+                    }else if(self.searchBy === "firstname"){
+                        return user.firstname.toLowerCase().includes(self.search.toLowerCase());
+                    }else if(self.searchBy === "country"){
+                        return user.city.toLowerCase().includes(self.search.toLowerCase());
+                    }else if(self.searchBy === "city"){
+                        return user.city.toLowerCase().includes(self.search.toLowerCase());
+                    }
                 });
                 return this.users;
             }
-        },
-        methods:{
-            fullname(user){
-                return user.firstname + ' ' + user.lastname;
-            }
-        },
-        filters:{
-            getAge(birthdate){
-                let [day, month, year] = birthdate.split("/");
-                let dateBirth = new Date(year, month, day).getTime();
-                return birthdate + ' (' + Math.floor((Date.now() - dateBirth) / (365.25 * 24 * 60 * 60 * 1000))+ ') ans';
-            }
-        },
+        }
     }
 </script>
