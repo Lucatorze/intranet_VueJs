@@ -20,7 +20,7 @@
 
         <br>
         <div class="col s12">
-            <user-card v-for="(user, i) in filteredUser" :key="i" :user="user" class="card horizontal col s5 offset-m1"></user-card>
+            <user-card v-for="(user, i) in filteredUser" :key="i" :user="user" class="card horizontal col s5 offset-m1" @remove="removeUser"></user-card>
             <!--<div v-for="(user, i) in filteredUser" :key="i" class="card horizontal col s5 offset-m1">
                 <div class="card-image col s3 " style="margin-top: 6%">
                     <img class="responsive-img" :src="user.photo">

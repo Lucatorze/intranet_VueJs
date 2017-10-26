@@ -7,7 +7,7 @@
         <div class="title">Avez vous dit bonjour aujourd'hui à ...</div>
         <br>
         <div class="col s12 m8 offset-m2">
-            <user-card :user="user"></user-card>
+            <user-card :user="user" @remove="removeUser"></user-card>
             <a @click="randomUser" class="waves-effect waves-light btn"><i class="material-icons left">autorenew</i>Dire bonjour à quequ'un d'autre !</a>
         </div>
     </div>

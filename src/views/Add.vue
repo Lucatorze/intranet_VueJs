@@ -3,7 +3,7 @@
         <h1>Ajouter un collaborateur</h1>
         <hr>
         <br>
-        <user-form></user-form>
+        <user-form @send="addUser"></user-form>
     </div>
 </template>
 
@@ -12,5 +12,10 @@
     export default {
         components: {UserForm},
         name: 'add-view',
+        methods:{
+            addUser: function (user) {
+                console.log(user)
+            },
+        }
     }
 </script>

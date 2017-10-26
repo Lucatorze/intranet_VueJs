@@ -12,7 +12,8 @@
     "jquery": "^3.2.1",
     "materialize-css": "^0.100.2",
     "vue": "^2.4.4",
-    "vue-materials": "^1.0.7-rc.7"
+    "vue-materials": "^1.0.7-rc.7",
+    "vuelidate": "^0.6.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

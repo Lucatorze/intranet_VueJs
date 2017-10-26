@@ -13,6 +13,7 @@
                         <li><i class="material-icons">perm_contact_calendar</i> {{ user.birthdate|getAge }}</li>
                         <li><i class="material-icons">location_on</i> {{ user.city }}, {{ user.country }}</li>
                     </ul>
+                    <button class="waves-effect waves-light btn" @click="remove">Supprimer</button>
                 </div>
             </div>
         </div>
@@ -38,6 +39,11 @@
                 let dateBirth = new Date(year, month, day).getTime();
                 return birthdate + ' (' + Math.floor((Date.now() - dateBirth) / (365.25 * 24 * 60 * 60 * 1000))+ ') ans';
             }
-        }
+        },
+        methods:{
+            remove: function () {
+                this.$emit('remove', this.user);
+            },
+        },
     }
 </script>
