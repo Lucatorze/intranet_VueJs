@@ -13,7 +13,7 @@
                         <li><i class="material-icons">perm_contact_calendar</i> {{ user.birthdate|getAge }}</li>
                         <li><i class="material-icons">location_on</i> {{ user.city }}, {{ user.country }}</li>
                     </ul>
-                    <button class="waves-effect waves-light btn" @click="remove">Supprimer</button>
+                    <button class="waves-effect waves-light btn" @click="remove(user)">Supprimer</button>
                 </div>
             </div>
         </div>
@@ -41,8 +41,8 @@
             }
         },
         methods:{
-            remove: function () {
-                this.$emit('remove', this.user);
+            remove: function (user) {
+                this.$emit('remove', user);
             },
         },
     }
