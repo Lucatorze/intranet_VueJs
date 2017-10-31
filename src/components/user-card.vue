@@ -4,9 +4,9 @@
             <img width="200px" height="150px" :src="user.photo">
         </div>
         <div class="card-stacked">
-            <div class="card-content" >
+            <div class="card-content">
                 <div class="name"><b>{{ fullname }}</b></div>
-                <div class="col offset-m3">
+                <div class="col offset-m1">
                     <ul>
                         <li><i class="material-icons">email</i> {{ user.email }}</li>
                         <li><i class="material-icons">local_phone</i> {{ user.phone }}</li>

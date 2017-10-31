@@ -6,10 +6,10 @@
         <br>
         <div class="title">Avez vous dit bonjour aujourd'hui à ...</div>
         <br>
-        <div class="col s12 m8 offset-m2">
-            <user-card :user="user" @remove="removeUser"></user-card>
-            <a @click="randomUser" class="waves-effect waves-light btn"><i class="material-icons left">autorenew</i>Dire bonjour à quequ'un d'autre !</a>
+        <div class="col s12 m8 offset-m3">
+            <user-card :user="user" @remove="removeUser" class="card horizontal col s10"></user-card>
         </div>
+        <a @click="randomUser" class="waves-effect waves-light btn"><i class="material-icons left">autorenew</i>Dire bonjour à quequ'un d'autre !</a>
     </div>
 </template>
 
@@ -24,7 +24,7 @@
             return {
                 welcomeMsg: 'Bienvenue dans l\'intranet',
                 description: 'La plate-forme social de l\'entreprise',
-                user: users[0],
+                user: users[Math.floor(Math.random() * (users.length - 0 + 0)) + 0],
             }
         },
 

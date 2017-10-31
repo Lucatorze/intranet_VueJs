@@ -20,7 +20,7 @@
 
         <br>
         <div class="col s12">
-            <user-card v-for="(user, i) in filteredUser" :key="i" :user="user" class="card horizontal col s5 offset-m1"></user-card>
+            <user-card v-for="(user, i) in filteredUser" :key="i" :user="user" class="card horizontal col s6 "></user-card>
             <!--<div v-for="(user, i) in filteredUser" :key="i" class="card horizontal col s5 offset-m1">
                 <div class="card-image col s3 " style="margin-top: 6%">
                     <img class="responsive-img" :src="user.photo">
@@ -66,7 +66,7 @@
                     }else if(self.searchBy === "firstname"){
                         return user.firstname.toLowerCase().includes(self.search.toLowerCase());
                     }else if(self.searchBy === "country"){
-                        return user.city.toLowerCase().includes(self.search.toLowerCase());
+                        return user.country.toLowerCase().includes(self.search.toLowerCase());
                     }else if(self.searchBy === "city"){
                         return user.city.toLowerCase().includes(self.search.toLowerCase());
                     }
