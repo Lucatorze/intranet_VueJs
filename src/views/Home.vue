@@ -32,6 +32,9 @@
             randomUser: function () {
                 this.user = users[Math.floor(Math.random() * (users.length - 0 + 0)) + 0]
             },
+            removeUser: function (user) {
+                users.splice(user)
+            }
         }
     }
 </script>
