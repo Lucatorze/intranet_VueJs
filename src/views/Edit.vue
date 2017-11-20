@@ -1,24 +1,23 @@
 <template>
-    <main id="app">
-
-        <header>
-            <nav class="container">
-                <a href="#">Accueil</a>
-                <a href="#">Liste des collaborateurs</a>
-                <a href="#">Ajouter un collaborateur</a>
-            </nav>
-        </header>
-
-        <home-view />
-    </main>
+    <div id="edit-view">
+        <h1>Modifier un collaborateur</h1>
+        <hr>
+        <br>
+        <user-form @send="addUser"></user-form>
+    </div>
 </template>
 
 <script>
-    import HomeView from './views/Home.vue'
+import UserForm from "../components/user-form.vue";
+import UserService from "../services/UserService.js";
 
-    export default {
-        name: 'app',
-
-        components : { HomeView }
+export default {
+  components: { UserForm },
+  name: "edit-view",
+  methods: {
+    editUser: function(user) {
+      UserService.fetchOne(user);
     }
+  }
+};
 </script>

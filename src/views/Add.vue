@@ -8,14 +8,16 @@
 </template>
 
 <script>
-    import UserForm from "../components/user-form.vue";
-    export default {
-        components: {UserForm},
-        name: 'add-view',
-        methods:{
-            addUser: function (user) {
-                console.log(user)
-            },
-        }
+import UserForm from "../components/user-form.vue";
+import UserService from "../services/UserService.js";
+
+export default {
+  components: { UserForm },
+  name: "add-view",
+  methods: {
+    addUser: function(user) {
+      UserService.addUser(user);
     }
+  }
+};
 </script>

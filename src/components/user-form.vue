@@ -71,75 +71,83 @@
 </template>
 
 <script>
-    import { required, email, minLength, maxLength, url } from 'vuelidate/lib/validators'
+import {
+  required,
+  email,
+  minLength,
+  maxLength,
+  url
+} from "vuelidate/lib/validators";
 
-    export default {
-        name: 'user-form',
-        data() {
-            return {
-                user : {
-                    firstname : '',
-                    lastname : '',
-                    gender : '',
-                    email : '',
-                    phone : '',
-                    birthdate : '',
-                    city : '',
-                    country : '',
-                    photo : '',
-                }
-            }
-        },
-        methods:{
-            send: function () {
-                this.$emit('send', this.user);
-            },
-        },
-        validations: {
-            user: {
-                firstname: {
-                    required,
-                    minLength : minLength(2),
-                },
-                lastname: {
-                    required,
-                    minLength : minLength(2),
-                },
-                gender: {
-                    required,
-                },
-                email: {
-                    required,
-                    email
-                },
-                phone: {
-                    required,
-                    minLength : minLength(9),
-                    maxLength: maxLength(10),
-                },
-                birthdate: {
-                    required,
-                },
-                city: {
-                    required,
-                },
-                country: {
-                    required,
-                },
-                photo: {
-                    url
-                }
-            }
+export default {
+  name: "user-form",
 
+  props: {
+    user: { type: Object, required: false }
+  },
 
-        }
+  data() {
+    return {
+      user: {
+        firstname: "",
+        lastname: "",
+        gender: "",
+        email: "",
+        phone: "",
+        birthdate: "",
+        city: "",
+        country: "",
+        photo: ""
+      }
+    };
+  },
+  methods: {
+    send: function() {
+      this.$emit("send", this.user);
     }
+  },
+  validations: {
+    user: {
+      firstname: {
+        required,
+        minLength: minLength(2)
+      },
+      lastname: {
+        required,
+        minLength: minLength(2)
+      },
+      gender: {
+        required
+      },
+      email: {
+        required,
+        email
+      },
+      phone: {
+        required,
+        minLength: minLength(9),
+        maxLength: maxLength(10)
+      },
+      birthdate: {
+        required
+      },
+      city: {
+        required
+      },
+      country: {
+        required
+      },
+      photo: {
+        url
+      }
+    }
+  }
+};
 </script>
 <style>
-    .alert {
-        color: #D8000C;
-        background-color: #FFBABA;
-        float: left;
-    }
-
+.alert {
+  color: #d8000c;
+  background-color: #ffbaba;
+  float: left;
+}
 </style>
